@@ -5,7 +5,7 @@
     "types": [
       "jasmine",
       "node",
-      "../typings/ambient-light-sensor/"
+      "axe-core"
     ]
   },
   "files": [
