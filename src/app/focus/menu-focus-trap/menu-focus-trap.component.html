@@ -1,7 +1,9 @@
 <p>
-  <button
+  <button #menuButton
       class="nes-btn is-primary"
-      #menuButton
+      aria-haspopup="true"
+      aria-controls="sidenav"
+      [attr.aria-expanded]="isMenuVisible"
       (click)="showMenu()">Menu</button>
 
   <a class="nes-btn" href="#">Home</a>
@@ -44,9 +46,11 @@
   <ally-focus-monitor></ally-focus-monitor>
 </p>
 
-<div class="sidebar"
+<div id="sidenav"
+    class="sidebar"
     #cdkTrapFocus="cdkTrapFocus"
     aria-labelledby="sidenav-label"
+    [attr.aria-hidden]="isMenuVisible ? 'false' : null"
     [cdkTrapFocus]="isMenuVisible"
     [class.visible]="isMenuVisible"
     (keydown.esc)="hideMenu()">
