@@ -1,20 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuFocusTrapComponent } from './menu-focus-trap.component';
+import { DropdownComponent } from './dropdown.component';
 
-describe('MenuFocusTrapComponent', () => {
-  let component: MenuFocusTrapComponent;
-  let fixture: ComponentFixture<MenuFocusTrapComponent>;
+describe('DropdownComponent', () => {
+  let component: DropdownComponent;
+  let fixture: ComponentFixture<DropdownComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuFocusTrapComponent ]
+      declarations: [
+        DropdownComponent,
+      ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuFocusTrapComponent);
+    fixture = TestBed.createComponent(DropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

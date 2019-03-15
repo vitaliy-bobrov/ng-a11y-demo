@@ -1,0 +1,31 @@
+<label id="btn-label">
+  Select color
+
+  <button #toggle
+      class="nes-btn toggle"
+      aria-labelledby="btn-label"
+      aria-haspopup="listbox"
+      [attr.aria-expanded]="isDropdownVisible"
+      (click)="toggleDropdown()">
+    {{ selected?.label || 'None' }}
+  </button>
+</label>
+
+<div #listbox
+    role="listbox"
+    aria-labelledby="listlabel"
+    [attr.aria-hidden]="isDropdownVisible"
+    tabindex="-1"
+    class="nes-container options-list"
+    [class.visible]="isDropdownVisible">
+  <span id="listlabel" class="visually-hidden">List of colors to choose</span>
+  <div role="option"
+      [attr.aria-selected]="option === selected ? 'true' : null";
+      class="nes-text option"
+      tabindex="0"
+      *ngFor="let option of options"
+      (keydown.enter)="handleSelection(option)"
+      (click)="handleSelection(option)">
+    {{ option.label }}
+  </div>
+</div>

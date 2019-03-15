@@ -1,0 +1,20 @@
+:host {
+  position: relative;
+  max-width: 500px;
+
+  .toggle {
+    display: block;
+    width: 100%;
+  }
+
+  .options-list {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    right: -8px;
+
+    &:not(.visible) {
+      display: none;
+    }
+  }
+}

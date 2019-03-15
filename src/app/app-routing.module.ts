@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DropdownComponent } from './axe-test/dropdown/dropdown.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,10 @@ const routes: Routes = [
   {
     path: 'focus',
     loadChildren: './focus/focus.module#FocusModule'
+  },
+  {
+    path: 'axe',
+    component: DropdownComponent
   },
   {
     path: '',
