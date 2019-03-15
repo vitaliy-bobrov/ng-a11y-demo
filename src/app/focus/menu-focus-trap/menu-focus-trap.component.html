@@ -1,0 +1,71 @@
+<p>
+  <button
+      class="nes-btn is-primary"
+      #menuButton
+      (click)="showMenu()">Menu</button>
+
+  <a class="nes-btn" href="#">Home</a>
+  <a class="nes-btn" href="#">Contact</a>
+  <a class="nes-btn" href="#">About</a>
+</p>
+
+<p>
+  <button
+    class="nes-btn is-primary"
+    (click)="showDialog()">Show Dialog</button>
+</p>
+
+<dialog
+    #dialog
+    class="nes-container dialog"
+    [class.visible]="isDialogVisible"
+    (keydown.esc)="hideDialog()">
+  <div class="dialog-content"
+      *ngIf="isDialogVisible"
+      cdkTrapFocus
+      cdkTrapFocusAutoCapture>
+    <p>Are you sure?</p>
+
+    <button
+        class="nes-btn is-error"
+        (click)="hideDialog()">No</button>
+
+    <button
+        class="nes-btn is-success"
+        cdkFocusInitial
+        (click)="hideDialog()">Yes</button>
+  </div>
+</dialog>
+
+<div class="overlay" [class.visible]="isDialogVisible" (click)="hideDialog()"></div>
+
+
+<p>
+  <ally-focus-monitor></ally-focus-monitor>
+</p>
+
+<div class="sidebar"
+    #cdkTrapFocus="cdkTrapFocus"
+    aria-labelledby="sidenav-label"
+    [cdkTrapFocus]="isMenuVisible"
+    [class.visible]="isMenuVisible"
+    (keydown.esc)="hideMenu()">
+  <span id="sidenav-label" class="visually-hidden">
+    Side Navigation
+  </span>
+
+  <button
+      class="nes-btn close-btn"
+      [tabindex]="isMenuVisible ? 0 : -1"
+      (click)="hideMenu()">
+    Close <i class="nes-icon close is-small"></i>
+  </button>
+
+  <a class="nes-btn"
+      href="#"
+      cdkFocusInitial
+      [tabindex]="isMenuVisible ? 0 : -1">Home</a>
+  <a class="nes-btn" href="#" [tabindex]="isMenuVisible ? 0 : -1">Contact</a>
+  <a class="nes-btn" href="#" [tabindex]="isMenuVisible ? 0 : -1">About</a>
+</div>
+<div class="overlay" [class.visible]="isMenuVisible" (click)="hideMenu()"></div>

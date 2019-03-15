@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import 'scss/nes.scss';
+
+:root {
+  --base-color: #{$color-black};
+  --background-color: #{$color-white};
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  color: var(--base-color);
+  background-color: var(--background-color);
+  transition: all .3s linear;
+
+  &.dark-mode {
+    --base-color: #{$color-white};
+    --background-color: #{$color-black};
+
+    .nes-btn {
+      border-image-source: $dark-btn-border;
+    }
+  }
+
+  @media(prefers-color-scheme: dark) {
+    --base-color: #{$color-white};
+    --background-color: #{$color-black};
+
+    .nes-btn {
+      border-image-source: $dark-btn-border;
+    }
+  }
+}
+
+.nes-container.with-title > .title {
+  background-color: var(--background-color);
+  transition: all .3s linear;
+}
+
+.nes-btn {
+  color: var(--base-color);
+  border-color: var(--base-color);
+  background-color: var(--background-color);
+  transition: all .3s linear;
+
+  &:focus {
+    outline: 4px solid map-get($primary-colors, 'hover');
+  }
+}
+
+p {
+  padding: 20px;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+nav {
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}

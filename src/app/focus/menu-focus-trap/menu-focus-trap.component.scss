@@ -1,0 +1,72 @@
+:host {
+  p .nes-btn:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 35%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 10px;
+    border-right: 4px solid var(--base-color);
+    background-color: var(--background-color);
+    transform: translateX(-100%);
+    transition: all .3s linear;
+
+    &.visible {
+      transform: translateX(0);
+    }
+
+    .nes-btn {
+      display: inline-block;
+
+      &:not(:last-child):not(.close-btn) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    .nes-btn {
+      display: inline-block;
+
+      &:not(:last-child):not(.close-btn) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--base-color);
+    opacity: 0;
+    z-index: 1;
+
+    &.visible {
+      display: block;
+      opacity: .7;
+    }
+  }
+
+  .close-btn {
+    align-self: flex-end;
+    margin-bottom: 40px;
+  }
+}

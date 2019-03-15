@@ -10,7 +10,8 @@
       "prefix": "ally",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "sass",
+          "changeDetection": "OnPush"
         }
       },
       "architect": {
@@ -24,8 +25,16 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/node_modules/nes.css/assets",
+                "output": "/assets/"
+              }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["./node_modules/nes.css/"]
+            },
             "styles": [
               "src/styles.scss"
             ],

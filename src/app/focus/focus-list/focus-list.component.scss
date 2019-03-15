@@ -1,0 +1,23 @@
+@import '../../../variables';
+
+:host {
+  .tile-list {
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 130px;
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+
+    &:focus {
+      outline: 4px solid map-get($primary-colors, 'hover');
+    }
+  }
+}
