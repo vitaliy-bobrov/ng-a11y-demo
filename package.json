@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:demo": "ng build --prod --base-href /ng-a11y-demo/",
-    "deploy": "gh-pages -d dist/ng-a11y-demo"
+    "deploy": "gh-pages -d dist/ng-a11y"
   },
   "private": true,
   "dependencies": {
