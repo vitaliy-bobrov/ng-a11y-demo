@@ -44,7 +44,7 @@ export class FocusListComponent implements AfterViewInit {
     const { key } = event;
     const manager = this.focusList;
 
-    switch(key) {
+    switch (key) {
       case 'home':
         manager.setFirstItemActive();
         event.preventDefault();

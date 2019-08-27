@@ -5,11 +5,11 @@ import { DropdownComponent } from './axe-test/dropdown/dropdown.component';
 const routes: Routes = [
   {
     path: 'ambient-sensor',
-    loadChildren: './ambient-sensor/ambient-sensor.module#AmbientSensorModule'
+    loadChildren: () => import('./ambient-sensor/ambient-sensor.module').then(m => m.AmbientSensorModule)
   },
   {
     path: 'focus',
-    loadChildren: './focus/focus.module#FocusModule'
+    loadChildren: () => import('./focus/focus.module').then(m => m.FocusModule)
   },
   {
     path: 'axe',

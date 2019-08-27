@@ -11,13 +11,13 @@ export class MenuFocusTrapComponent {
   isMenuVisible = false;
   isDialogVisible = false;
 
-  @ViewChild('cdkTrapFocus')
+  @ViewChild('cdkTrapFocus', { static: true })
   cdkTrapFocus: CdkTrapFocus;
 
-  @ViewChild('menuButton')
+  @ViewChild('menuButton', { static: true })
   menuButton: ElementRef<HTMLButtonElement>;
 
-  @ViewChild('dialog')
+  @ViewChild('dialog', { static: true })
   dialog: ElementRef<HTMLDialogElement>;
 
   showMenu() {

@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy } from '@angular/core';
+import { Observable, interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'ally-focus-monitor',
@@ -6,32 +11,16 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestro
   styleUrls: ['./focus-monitor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FocusMonitorComponent implements OnInit, OnDestroy {
-  element = 'body';
-  private interval;
-
-  constructor(private cd: ChangeDetectorRef) {
-    this.findFocused = this.findFocused.bind(this);
-  }
+export class FocusMonitorComponent implements OnInit {
+  focusedElement$: Observable<string>;
 
   ngOnInit() {
-    this.interval = setInterval(this.findFocused, 300);
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.interval);
+    this.focusedElement$ = interval(300).pipe(map(this.findFocused));
   }
 
   private findFocused() {
     const element = document.querySelector(':focus');
-    const classes = element ? element.className.split(' ').join('.') : '';
 
-    if (element === null) {
-      this.element = 'body';
-    } else {
-      this.element = `${element.tagName.toLowerCase()}.${classes} ${element.textContent}`;
-    }
-
-    this.cd.detectChanges();
+    return element === null ? 'body' : `${element.tagName.toLowerCase()} ${element.textContent}`;
   }
 }

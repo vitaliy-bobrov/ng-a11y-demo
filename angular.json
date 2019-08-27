@@ -33,7 +33,9 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["./node_modules/nes.css/"]
+              "includePaths": [
+                "./node_modules/nes.css/"
+              ]
             },
             "styles": [
               "src/styles.scss"
@@ -93,7 +95,9 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "stylePreprocessorOptions": {
-              "includePaths": ["./node_modules/nes.css/"]
+              "includePaths": [
+                "./node_modules/nes.css/"
+              ]
             },
             "styles": [
               "src/styles.scss"
@@ -121,6 +125,10 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },

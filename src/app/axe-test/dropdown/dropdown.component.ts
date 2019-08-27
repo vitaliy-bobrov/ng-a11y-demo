@@ -30,9 +30,9 @@ export class DropdownComponent {
     }
   ];
 
-  @ViewChild('listbox') listbox: ElementRef;
+  @ViewChild('listbox', { static: true }) listbox: ElementRef;
 
-  @ViewChild('toggle') toggle: ElementRef;
+  @ViewChild('toggle', { static: true }) toggle: ElementRef;
 
   @HostListener('keydown.esc')
   closeDropdown() {
