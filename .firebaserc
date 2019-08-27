@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ng-a11y-demo": {
+      "hosting": {
+        "ng-a11y": [
+          "ng-a11y-demo"
+        ]
+      }
+    }
+  }
+}
